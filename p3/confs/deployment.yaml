@@ -1,0 +1,35 @@
+# Запушь этот файл в публичный GitHub репо almedamo-config по пути: dev/deployment.yaml
+# Тест авто-синка на защите: v1 -> v2, commit, push
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wil-playground
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wil-playground
+  template:
+    metadata:
+      labels:
+        app: wil-playground
+    spec:
+      containers:
+        - name: wil-playground
+          image: wil42/playground:v1
+          ports:
+            - containerPort: 8888
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wil-playground
+  namespace: dev
+spec:
+  type: LoadBalancer
+  selector:
+    app: wil-playground
+  ports:
+    - port: 8888
+      targetPort: 8888
