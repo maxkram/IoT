@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     # CHANGE THIS to your actual GitHub repo that contains dev/deployment.yaml
-    repoURL: https://github.com/almedamo/almedamo-config.git
+    repoURL: https://github.com/maxkram/IoT.git
     targetRevision: HEAD
     path: dev
   destination:

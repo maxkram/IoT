@@ -1,4 +1,3 @@
-# Запушь этот файл в публичный GitHub репо almedamo-config по пути: dev/deployment.yaml
 # Тест авто-синка на защите: v1 -> v2, commit, push
 apiVersion: apps/v1
 kind: Deployment
