@@ -100,3 +100,13 @@ curl http://localhost:8888   # expect {"message":"v1"}
 - Traefik v2 uses `networking.k8s.io/v1` — older `extensions/v1beta1` will fail.
 - Vagrant port 80 on host may conflict with existing services. Change if needed.
 - For p3, Docker must be running. Add user to docker group, then `newgrp docker`.
+
+```sh
+Argo CD admin password:
+kEjJaFUBT8QQTg-V
+
+Argo CD UI: в другом терминале запусти и открой https://localhost:8443:
+  kubectl port-forward svc/argocd-server -n argocd 8443:443
+
+Проверка приложения: curl http://localhost:8888 (ожидается {"status":"ok","message":"v1"} после sync)
+```
