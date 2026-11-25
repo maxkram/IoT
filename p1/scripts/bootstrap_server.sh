@@ -7,10 +7,13 @@ setenforce 0 2>/dev/null || true
 sed -i 's/^SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config 2>/dev/null || true
 
 # K3s в режиме сервера (controller)
-curl -sfL https://get.k3s.io | sh -s - \
+curl -sfL https://get.k3s.io | \
+  INSTALL_K3S_SKIP_SELINUX_RPM=true \
+  sh -s - \
   --write-kubeconfig-mode 644 \
   --node-ip 192.168.56.110 \
-  --tls-san 192.168.56.110
+  --tls-san 192.168.56.110 \
+  --bind-address 0.0.0.0
 
 ln -sf /usr/local/bin/k3s /usr/local/bin/kubectl
 

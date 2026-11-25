@@ -13,6 +13,7 @@ done
 TOKEN=$(cat /vagrant/node-token)
 
 curl -sfL https://get.k3s.io | \
+  INSTALL_K3S_SKIP_SELINUX_RPM=true \
   K3S_URL=https://192.168.56.110:6443 \
   K3S_TOKEN=$TOKEN \
   sh -s - \
