@@ -20,6 +20,7 @@ GitOps tool. Watches a Git repo, applies manifests to cluster automatically. Dec
 
 ### Verification commands
 ```
+vagrant destroy -f
 vagrant up
 vagrant ssh mkramerS
 ifconfig eth1            # expect 192.168.56.110
@@ -39,6 +40,7 @@ sudo kubectl get nodes -o wide   # expect 2 Ready nodes
 
 ### Verification commands
 ```
+vagrant destroy -f
 vagrant up
 vagrant ssh mkramerS
 sudo kubectl get nodes -o wide
